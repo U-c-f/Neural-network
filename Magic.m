@@ -114,7 +114,7 @@ for e = 1:1:epoch_num
             if (i~=1)
                 layer(i).weight = layer(i).weight-eta.*layer(i).delta*layer(i-1).Vk' -alpha.*(layer(i).weight - layer(i).previous_weight)  ;
             else
-                layer(i).weight = layer(i).weight-eta.*layer(i).delta*current_x'-alpha.*layer(i).weight ;
+                layer(i).weight = layer(i).weight-eta.*layer(i).delta*current_x'-alpha.*(layer(i).weight- layer(i).previous_weight) ;
             end
         end
         
